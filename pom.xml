@@ -48,6 +48,12 @@
     </scm>
 
     <properties>
+        <!-- Java 17 Configuration -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
+        
+        <!-- Skip checks -->
         <air.check.skip-findbugs>true</air.check.skip-findbugs>
         <air.check.skip-pmd>true</air.check.skip-pmd>
         <air.check.skip-jacoco>true</air.check.skip-jacoco>
@@ -250,10 +256,7 @@
                                     <version>3.6.0</version>
                                 </requireMavenVersion>
                                 <enforceBytecodeVersion>
-                                    <maxJdkVersion>11</maxJdkVersion>
-                                    <ignoreClasses>
-                                        <ignoreClass>org.apache.avro.*</ignoreClass>
-                                    </ignoreClasses>
+                                    <maxJdkVersion>17</maxJdkVersion>
                                 </enforceBytecodeVersion>
                             </rules>
                         </configuration>
