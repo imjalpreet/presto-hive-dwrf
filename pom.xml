@@ -52,6 +52,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.release>17</maven.compiler.release>
+        <project.build.targetJdk>17</project.build.targetJdk>
         
         <!-- Skip checks -->
         <air.check.skip-findbugs>true</air.check.skip-findbugs>
@@ -221,47 +222,6 @@
                         <test.tmp.dir>${project.build.directory}/test/tmp</test.tmp.dir>
                     </systemPropertyVariables>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.5.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>extra-enforcer-rules</artifactId>
-                        <version>1.8.0</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireJavaVersion>
-                                    <version>[1.8,)</version>
-                                </requireJavaVersion>
-                                <bannedDependencies>
-                                    <excludes>
-                                        <exclude>com.google.guava:guava-jdk5</exclude>
-                                    </excludes>
-                                </bannedDependencies>
-                                <banDuplicatePomDependencyVersions/>
-                                <requireUpperBoundDeps/>
-                                <requireMavenVersion>
-                                    <version>3.6.0</version>
-                                </requireMavenVersion>
-                                <enforceBytecodeVersion>
-                                    <maxJdkVersion>17</maxJdkVersion>
-                                </enforceBytecodeVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
